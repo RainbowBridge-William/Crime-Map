@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "./map.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function Map() {
     mapboxgl.accessToken =
@@ -13,7 +14,7 @@ function Map() {
     const [zoom, setZoom] = useState(9);
     
     useEffect(() => {
-
+        if (map.current) return;
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: "mapbox://styles/mapbox/streets-v11",
@@ -23,7 +24,7 @@ function Map() {
         const marker = new mapboxgl.Marker()
             .setLngLat([-122.3321, 47.6062])
             .addTo(map.current);
-    }, []);
+    });
 
     return <div ref={mapContainer} className="map-container"></div>;
 }
