@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Map from "./Map";
+import Alert from "./Alert";
 import "./index.css";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
                 </h1>
             </header>
             <body>
+                <Alert data={data}/>
                 <Map data={data} />
             </body>
             <footer></footer>
