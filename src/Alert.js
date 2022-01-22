@@ -4,7 +4,6 @@ export function Alert(props) {
     const data = props.data;
     const [mostRecentData, setData] = useState(null);
 
-
     if (data) {
         let sortedData = data.sort((a, b) => {
             let ADate = new Date(a.offense_start_datetime);
@@ -15,6 +14,19 @@ export function Alert(props) {
             setData(sortedData[0]);
         }
     }
+
+    function processDate(mostRecentData) {
+        if (mostRecentData) {
+            return (
+                mostRecentData.offense_start_datetime.substr(0, 10) +
+                " " +
+                mostRecentData.offense_start_datetime.substr(11)
+            );
+        } else {
+            return "";
+        }
+    }
+
     return (
         <div>
             <h1>Alert The Most Recent Crime</h1>
@@ -29,11 +41,7 @@ export function Alert(props) {
                 </div>
                 <div className="data-container">
                     <h2>Time</h2>
-                    <p>
-                        {mostRecentData
-                            ? mostRecentData.offense_start_datetime
-                            : ""}
-                    </p>
+                    <p>{processDate(mostRecentData)}</p>
                 </div>
                 <div className="data-container">
                     <h2>Crime Type</h2>
