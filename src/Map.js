@@ -14,11 +14,16 @@ function Map(props) {
     const [lat, setLat] = useState(47.6);
     const [zoom, setZoom] = useState(9);
 
+
     useEffect(() => {
         if (todayData) {
             console.log("mark");
             todayData.forEach((crime) => {
-                new mapboxgl.Marker()
+                
+                const marker = document.createElement('i'); // React can use document?????? to create HTMLDOM element rather than jsx element
+                marker.classList.add("fas");
+                marker.classList.add("fa-car");
+                new mapboxgl.Marker(marker)
                     .setLngLat([crime.longitude, crime.latitude])
                     .addTo(map.current);
             });
