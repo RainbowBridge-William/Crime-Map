@@ -22,7 +22,7 @@ function Map(props) {
                 
                 const marker = document.createElement('i'); // React can use document?????? to create HTMLDOM element rather than jsx element
                 marker.classList.add("fas");
-                marker.classList.add("fa-car");
+                marker.classList.add(crime.offense_code);
                 new mapboxgl.Marker(marker)
                     .setLngLat([crime.longitude, crime.latitude])
                     .addTo(map.current);
