@@ -6,8 +6,8 @@
 .marker {
     mask-image: url(../public/icons/marker.svg);
     mask-repeat: no-repeat;
-    width: 25px;
-    height: 45px;
+    width: 20px;
+    height: 40px;
     background-color: rgb(0, 38, 255);
     cursor: pointer;
 }
