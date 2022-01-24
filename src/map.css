@@ -6,25 +6,27 @@
 .marker {
     mask-image: url(../public/icons/marker.svg);
     mask-repeat: no-repeat;
-    width: 30px;
-    height: 50px;
-    background-color: rgb(0, 156, 156);
+    width: 25px;
+    height: 45px;
+    background-color: rgb(0, 38, 255);
 }
  /* css identifier cannot start with number */
 .c120 {
     mask-image: url(../public/icons/robbery.svg);
     background-color: rgb(255, 115, 0);
 }
-.c {
+/* regular expression in CSS, begin end contains */
+/* CSS [attribute^$*=value] */
+[class*="c13"] {
     mask-image: url(../public/icons/assult.svg);
-    background-color: rgb(255, 115, 0);
+    background-color: rgb(255, 0, 0);
 }
-.c120 {
-    mask-image: url(../public/icons/robbery.svg);
-    background-color: rgb(255, 115, 0);
+.c220 {
+    mask-image: url(../public/icons/burglary.svg);
+    background-color: rgb(0, 185, 15);
 }
-.c120 {
-    mask-image: url(../public/icons/robbery.svg);
-    background-color: rgb(255, 115, 0);
+[class*="c09"] {
+    mask-image: url(../public/icons/murder.svg);
+    background-color: rgb(255, 0, 0);
 }
 
