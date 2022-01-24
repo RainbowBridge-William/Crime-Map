@@ -10,6 +10,7 @@ function App() {
 
     useEffect(() => {
         const todayDate = new Date();
+        // Date.getTime: when you need to calculate Date, getTime() returns the number of milliseconds since January 1, 1970 00:00:00. then +-*/
         const isoDate = new Date(
             todayDate.getTime() -
                 todayDate.getTimezoneOffset() * 60000 -

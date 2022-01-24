@@ -6,6 +6,9 @@ export function Alert(props) {
 
     if (data) {
         let sortedData = data.sort((a, b) => {
+            // turn date string into Date then gettime to calculate
+            //sort(compareFunction)
+            //compareFunction(a,b) ?
             let ADate = new Date(a.offense_start_datetime);
             let BDate = new Date(b.offense_start_datetime);
             return BDate.getTime() - ADate.getTime();

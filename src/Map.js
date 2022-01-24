@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "./map.css";
@@ -14,16 +15,24 @@ function Map(props) {
     const [lat, setLat] = useState(47.6);
     const [zoom, setZoom] = useState(9);
 
+    function handleMouseEnter() {
+        
+    }
 
     useEffect(() => {
         if (todayData) {
-            console.log("marak");
-            todayData.forEach((crime) => {               
-                const marker = document.createElement('div'); // React can use document?????? to create HTMLDOM element rather than jsx element
-                marker.classList.add("marker");
-                marker.classList.add("crimeMarker");
-                marker.classList.add(`c${crime.offense_code}`);
-                new mapboxgl.Marker(marker)
+            todayData.forEach((crime) => {
+                // const marker = document.createElement('div'); // React can use document?????? to create HTMLDOM element rather than jsx element
+                // marker.classList.add("marker");
+                // marker.classList.add("crimeMarker");
+                // marker.classList.add(`c${crime.offense_code}`);
+                const container = document.createElement("div");
+                ReactDOM.render(
+                    <div
+                        className={`marker crimeMarker c${crime.offense_code}`} onMouseEnter={handleMouseEnter} on></div>,
+                    container
+                );
+                new mapboxgl.Marker(container)
                     .setLngLat([crime.longitude, crime.latitude])
                     .addTo(map.current);
             });
