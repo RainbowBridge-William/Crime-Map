@@ -17,12 +17,12 @@ function Map(props) {
 
     useEffect(() => {
         if (todayData) {
-            console.log("mark");
-            todayData.forEach((crime) => {
-                
-                const marker = document.createElement('i'); // React can use document?????? to create HTMLDOM element rather than jsx element
-                marker.classList.add("fas");
-                marker.classList.add(crime.offense_code);
+            console.log("marak");
+            todayData.forEach((crime) => {               
+                const marker = document.createElement('div'); // React can use document?????? to create HTMLDOM element rather than jsx element
+                marker.classList.add("marker");
+                marker.classList.add("crimeMarker");
+                marker.classList.add(`c${crime.offense_code}`);
                 new mapboxgl.Marker(marker)
                     .setLngLat([crime.longitude, crime.latitude])
                     .addTo(map.current);
