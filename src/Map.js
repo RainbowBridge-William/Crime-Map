@@ -15,7 +15,7 @@ function Map(props) {
     const [lat, setLat] = useState(47.6);
     const [zoom, setZoom] = useState(9);
     const popUp = useRef(null);
-    
+
     function handleMouseEnter(crime) {
         popUp.current = new mapboxgl.Popup({
             closeButton: false,
@@ -23,7 +23,13 @@ function Map(props) {
         });
         popUp.current
             .setLngLat([crime.longitude, crime.latitude])
-            .setHTML(crime.offense)
+            .setHTML(
+                `<strong>${crime.offense}</strong>
+                <p>Start Time: ${crime.offense_start_datetime}</p>
+                <p>End Time: ${crime.offense_end_datetime}</p>
+                <p>Address: ${crime._100_block_address}</p>
+                `
+            )
             .addTo(map.current);
     }
 
@@ -41,7 +47,9 @@ function Map(props) {
                 const container = document.createElement("div");
                 ReactDOM.render(
                     <div
-                        className={`marker crimeMarker c${crime.offense_code}`} onMouseEnter={() => handleMouseEnter(crime)} onMouseLeave={() => handleMouseLeave(crime)}></div>,
+                        className={`marker crimeMarker c${crime.offense_code}`}
+                        onMouseEnter={() => handleMouseEnter(crime)}
+                        onMouseLeave={() => handleMouseLeave(crime)}></div>,
                     container
                 );
                 new mapboxgl.Marker(container)
