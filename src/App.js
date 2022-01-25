@@ -8,6 +8,7 @@ function App() {
     const token = "$$app_token=wH0ZPAJxQX2hg2xTaeLbqCbUV";
     const URL = `https://data.seattle.gov/resource/tazs-3rd5.json?${token}`;
     const [data, setData] = useState(null);
+    const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {
         const todayDate = new Date();
@@ -27,6 +28,7 @@ function App() {
             })
             .then((res) => {
                 setData(res);
+                setFilteredData(res);
             });
     }, []);
 
@@ -45,8 +47,8 @@ function App() {
             </header>
             <body>
                 <Alert data={data}/>
-                <Filter data={data} callBack={setData}></Filter>
-                <Map data={data} />
+                <Filter data={data} callBack={setFilteredData}></Filter>
+                <Map data={filteredData} />
             </body>
             <footer></footer>
         </div>

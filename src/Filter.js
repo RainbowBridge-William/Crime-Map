@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Filter(props) {
     const data = props.data;
     const setData = props.callBack;
+    const [choice, setChoice] = useState(null);
+
+    if (choice === "assult") {
+        const filteredData = data.filter((crime) => {
+            console.log(crime)
+            if (crime.offense_code.match(/^c13[a-zA-Z]/)) {
+                return crime;
+            }
+            return null;
+        })
+        console.log(filteredData);
+    }
+
     return (
         <div className="dropdown">
             <button
@@ -11,23 +24,15 @@ function Filter(props) {
                 id="filter"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Dropdown button
+                Filter
             </button>
             <ul className="dropdown-menu" aria-labelledby="filter">
                 <li>
-                    <a className="dropdown-item" href="#">
-                        Action
-                    </a>
-                </li>
-                <li>
-                    <a className="dropdown-item" href="#">
-                        Another action
-                    </a>
-                </li>
-                <li>
-                    <a className="dropdown-item" href="#">
-                        Something else here
-                    </a>
+                    <div
+                        className="dropdown-item"
+                        onClick={() => setChoice("assult")}>
+                        Assult
+                    </div>
                 </li>
             </ul>
         </div>
