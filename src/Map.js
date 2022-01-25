@@ -10,6 +10,7 @@ function Map(props) {
 
     const mapContainer = useRef(null);
     const map = useRef(null);
+    const markers = useRef([]);
     const todayData = props.data;
     const [lng, setLng] = useState(-122.3321);
     const [lat, setLat] = useState(47.6);
@@ -38,9 +39,7 @@ function Map(props) {
 
     // render map only if map not exist
     useEffect(() => {
-
         if (!map.current) {
-            console.log("map");
             map.current = new mapboxgl.Map({
                 container: mapContainer.current,
                 style: "mapbox://styles/mapbox/streets-v11",
@@ -52,12 +51,14 @@ function Map(props) {
 
 
     useEffect(() => {
+        console.log("marker");
         if (todayData) {
-            todayData.forEach((crime) => {
+            todayData.forEach((crime, i) => {
                 const container = document.createElement("div"); // React can use document?????? to create HTMLDOM element rather than jsx element
                 ReactDOM.render(
                     <div
                         className={`marker crimeMarker c${crime.offense_code}`}
+                        ref={(el) => markers.current[i] = el} // ref function: ref to multiple elments
                         onMouseEnter={() => handleMouseEnter(crime)}
                         onMouseLeave={() => handleMouseLeave(crime)}></div>,
                     container
@@ -67,7 +68,13 @@ function Map(props) {
                     .addTo(map.current);
             });
         }
-    }, [map.current, todayData]);
+
+        return () => {
+            markers.current.forEach((marker) => {
+                marker.remove();
+            })
+        }
+    }, [todayData]);
 
     return <div ref={mapContainer} className="map-container"></div>;
 }
