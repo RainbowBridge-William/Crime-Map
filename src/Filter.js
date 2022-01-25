@@ -6,18 +6,18 @@ function Filter(props) {
     const [choice, setChoice] = useState(null);
 
     useEffect(() => {
-        filter("assult", /^13[a-zA-Z]/);
-        filter("all");
-        filter("murder", /^09/);
-        filter("burglary", "220");
-        filter("robbery", "120");
-        filter("other");
+        filter("Assult", /^13[a-zA-Z]/);
+        filter("All");
+        filter("Murder", /^09/);
+        filter("Burglary", "220");
+        filter("Robbery", "120");
+        filter("Other");
     }, [choice]);
 
     function filter(filterTerm, expression) {
-        if (choice === "all") {
+        if (choice === "All") {
             setData(data);
-        } else if (choice === "other") {
+        } else if (choice === "Other") {
             const filteredData = data.filter((crime) => {
                 if (
                     crime.offense_code.match(/^13[a-zA-Z]|^09/) ||
@@ -57,27 +57,27 @@ function Filter(props) {
                 <li>
                     <div
                         className="dropdown-item"
-                        onClick={() => setChoice("all")}>
+                        onClick={() => setChoice("All")}>
                         All
                     </div>
                     <div
                         className="dropdown-item"
-                        onClick={() => setChoice("assult")}>
+                        onClick={() => setChoice("Assult")}>
                         Assult
                     </div>
                     <div
                         className="dropdown-item"
-                        onClick={() => setChoice("burglary")}>
+                        onClick={() => setChoice("Burglary")}>
                         Burglary
                     </div>
                     <div
                         className="dropdown-item"
-                        onClick={() => setChoice("robbery")}>
+                        onClick={() => setChoice("Robbery")}>
                         Robbery
                     </div>
                     <div
                         className="dropdown-item"
-                        onClick={() => setChoice("other")}>
+                        onClick={() => setChoice("Other")}>
                         Other
                     </div>
                 </li>
