@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Filter(props) {
     const data = props.data;
     const setData = props.callBack;
     const [choice, setChoice] = useState(null);
 
-    if (choice === "assult") {
-        const filteredData = data.filter((crime) => {
-            console.log(crime)
-            if (crime.offense_code.match(/^c13[a-zA-Z]/)) {
-                return crime;
-            }
-            return null;
-        })
-        console.log(filteredData);
-    }
+    useEffect(() => {
+        if (choice === "assult") {
+            const filteredData = data.filter((crime) => {
+                if (crime.offense_code.match(/^13[a-zA-Z]/)) {
+                    return crime;
+                }
+                return null;
+            })
+            console.log(filteredData);
+            setData(filteredData);
+        }
+    }, [choice]);
 
     return (
         <div className="dropdown">
