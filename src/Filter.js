@@ -51,7 +51,7 @@ function Filter(props) {
                 id="filter"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Filter
+                {choice ? choice : "Filter"}
             </button>
             <ul className="dropdown-menu" aria-labelledby="filter">
                 <li>
