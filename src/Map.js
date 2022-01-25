@@ -58,7 +58,7 @@ function Map(props) {
                 ReactDOM.render(
                     <div
                         className={`marker crimeMarker c${crime.offense_code}`}
-                        ref={(el) => markers.current[i] = el} // ref function: ref to multiple elments
+                        ref={(el) => markers.current[i] = el} // ref callback: ref to multiple elments
                         onMouseEnter={() => handleMouseEnter(crime)}
                         onMouseLeave={() => handleMouseLeave(crime)}></div>,
                     container
