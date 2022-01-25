@@ -26,7 +26,6 @@ function Map(props) {
             .setHTML(
                 `<strong>${crime.offense}</strong>
                 <p>Start Time: ${crime.offense_start_datetime}</p>
-                <p>End Time: ${crime.offense_end_datetime}</p>
                 <p>Address: ${crime._100_block_address}</p>
                 `
             )
@@ -37,14 +36,25 @@ function Map(props) {
         popUp.current.remove();
     }
 
+    // render map only if map not exist
+    useEffect(() => {
+
+        if (!map.current) {
+            console.log("map");
+            map.current = new mapboxgl.Map({
+                container: mapContainer.current,
+                style: "mapbox://styles/mapbox/streets-v11",
+                center: [lng, lat],
+                zoom: zoom,
+            });
+        }
+    });
+
+
     useEffect(() => {
         if (todayData) {
             todayData.forEach((crime) => {
-                // const marker = document.createElement('div'); // React can use document?????? to create HTMLDOM element rather than jsx element
-                // marker.classList.add("marker");
-                // marker.classList.add("crimeMarker");
-                // marker.classList.add(`c${crime.offense_code}`);
-                const container = document.createElement("div");
+                const container = document.createElement("div"); // React can use document?????? to create HTMLDOM element rather than jsx element
                 ReactDOM.render(
                     <div
                         className={`marker crimeMarker c${crime.offense_code}`}
@@ -55,15 +65,6 @@ function Map(props) {
                 new mapboxgl.Marker(container)
                     .setLngLat([crime.longitude, crime.latitude])
                     .addTo(map.current);
-            });
-        }
-        if (!map.current) {
-            console.log("map");
-            map.current = new mapboxgl.Map({
-                container: mapContainer.current,
-                style: "mapbox://styles/mapbox/streets-v11",
-                center: [lng, lat],
-                zoom: zoom,
             });
         }
     }, [map.current, todayData]);

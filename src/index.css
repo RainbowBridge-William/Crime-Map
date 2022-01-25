@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+#filter {
+    background-color: #6c757d;
+}

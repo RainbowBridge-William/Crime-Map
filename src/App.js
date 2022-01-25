@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Map from "./Map";
 import Alert from "./Alert";
+import Filter from "./Filter";
 import "./index.css";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
             </header>
             <body>
                 <Alert data={data}/>
+                <Filter data={data} callBack={setData}></Filter>
                 <Map data={data} />
             </body>
             <footer></footer>
