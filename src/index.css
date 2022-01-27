@@ -44,15 +44,13 @@ header h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-
-.data {
-    width: 100%;
+    background-image: url(../public/background.jpg);
+    background-size: cover;
 }
 
 .alert-container h1 {
     font-weight: 700;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .data-container h2 {
@@ -60,6 +58,7 @@ header h1 {
 }
 
 .data {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -68,7 +67,9 @@ h1 {
     text-decoration: none;
 }
 
-
-
-
+@media (max-width: 720px) {
+    .alert-container {
+        text-align: center;
+    }
+}
 
