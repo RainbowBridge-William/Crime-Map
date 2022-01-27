@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3, p {
-    font-family: 'Montserrat', sans-serif;;
+h1,
+h2,
+h3,
+p {
+    font-family: "Montserrat", sans-serif;
 }
 
 #filter {
@@ -19,11 +22,15 @@ header {
     display: flex;
 }
 
-header h1 {
+header .title {
+    width: 100%;
     margin: auto 0;
     display: block;
     left: 15px;
     position: relative;
+    height: 62px;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown {
@@ -67,9 +74,19 @@ h1 {
     text-decoration: none;
 }
 
+#icon {
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    mask-image: url(../public/icons/icon.svg);
+    mask-repeat: no-repeat;
+    display: block;
+    margin: auto 0;
+    margin-right: 10px;
+}
+
 @media (max-width: 720px) {
     .alert-container {
         text-align: center;
     }
 }
-

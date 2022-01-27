@@ -35,9 +35,12 @@ function App() {
     return (
         <div className="App">
             <header>
-                <h1 className="text-2xl font-bold text-white">
-                    Seattle Crime Map
-                </h1>
+                <div className="title">
+                    <div id="icon"></div>
+                    <h1 className="text-2xl font-bold text-white">
+                        Seattle Crime Map
+                    </h1>
+                </div>
             </header>
             <body>
                 <Alert data={data}/>
