@@ -6,15 +6,6 @@ function Filter(props) {
     const [choice, setChoice] = useState(null);
 
     useEffect(() => {
-        filter("Assult", /^13[a-zA-Z]/);
-        filter("All");
-        filter("Murder", /^09/);
-        filter("Burglary", "220");
-        filter("Robbery", "120");
-        filter("Other");
-    }, [choice]);
-
-    function filter(filterTerm, expression) {
         if (choice === "All") {
             setData(data);
         } else if (choice === "Other") {
@@ -29,7 +20,15 @@ function Filter(props) {
                 return crime;
             });
             setData(filteredData);
-        } else if (choice === filterTerm) {
+        }
+        filter("Assult", /^13[a-zA-Z]/);
+        filter("Murder", /^09/);
+        filter("Burglary", "220");
+        filter("Robbery", "120");
+    }, [choice]);
+
+    function filter(filterTerm, expression) {
+        if (choice === filterTerm) {
             const filteredData = data.filter((crime) => {
                 if (
                     crime.offense_code === expression ||

@@ -40,6 +40,7 @@ function Map(props) {
     // render map only if map not exist
     useEffect(() => {
         if (!map.current) {
+            console.log("map")
             map.current = new mapboxgl.Map({
                 container: mapContainer.current,
                 style: "mapbox://styles/mapbox/streets-v11",

@@ -32,16 +32,10 @@ function App() {
             });
     }, []);
 
-    // async function getTodayCrimes() {
-    //     if (!data) {
-
-    //     }
-    // }
-    //data.cityofchicago.org/resource/6zsd-86xi.json?$where=date between '2015-01-10T12:00:00' and '2015-01-10T14:00:00'
     return (
         <div className="App">
             <header>
-                <h1 className="text-3xl font-bold underline">
+                <h1 className="text-2xl font-bold text-white">
                     Seattle Crime Map
                 </h1>
             </header>

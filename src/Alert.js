@@ -31,9 +31,9 @@ export function Alert(props) {
     }
 
     return (
-        <div>
-            <h1>Alert The Most Recent Crime</h1>
-            <div>
+        <div className="alert-container">
+            <h1>Most Recent Crime Alert</h1>
+            <div className="data">
                 <div className="data-container">
                     <h2>Block Location</h2>
                     <p>
