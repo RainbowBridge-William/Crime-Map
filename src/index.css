@@ -44,14 +44,14 @@ header .title {
 
 .alert-container {
     position: relative;
-    display: block;
+    color: white;
     margin: auto auto;
     height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-image: url(../public/background.jpg);
+    background-image: url(../public/background.png);
     background-size: cover;
 }
 
